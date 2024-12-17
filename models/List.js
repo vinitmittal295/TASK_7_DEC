@@ -1,11 +1,12 @@
 const mongoose=require("mongoose")
 const listSchema=new mongoose.Schema({
-    name:{
+    listname:{
         type:String,
-        required:true
+        required:true,
+        unique:true
     },
-    items:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Item"
-    }]
-})
+},{
+    timestamps:true,versionKey:false
+}
+)
+module.exports=mongoose.model("list",listSchema)
